@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Register</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            
+            <p class="alert alert-danger"> {{message}}</p> 
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <form action="/user/create" method="post">
+                <div class="form-group mb-3">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" name="first_name"  placeholder="Enter First Name">
+                    <small  class="form-text text-muted">Lets hope your name isnt stupid, like Mark...or Wayne</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name"  placeholder="Enter Last Name">
+                    <small  class="form-text text-muted">god help you</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email"  placeholder="type your email dummy">
+                    
+                </div>
+                <div class="form-group mb-3" >
+                    <label for="pw_hash">Password</label>
+                    <input type="password" class="form-control" name="pw_hash" placeholder="Password">
+                </div>
+                <div class="form-group mb-3" >
+                    <label for="pw_hash_confirm">Confirm Password</label>
+                    <input type="password" class="form-control" name="pw_hash_confirm" placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+
+        <div class="jumbotron mt-4" >
+            <h1>LogIN</h1>
+            <form action="/user/login" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email"  placeholder="Enter your email, not someone elses">
+                    
+                </div>
+                <div class="form-group mb-3" >
+                    <label for="pw_hash">Password</label>
+                    <input type="text" class="form-control" name="pw_hash" id="pw_hash" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">login</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>
